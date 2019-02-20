@@ -1,5 +1,7 @@
 package com.example.bplist;
 
+import java.util.Date;
+
 /**
  * Created by pfgarofa on 2/5/2018.
  *
@@ -14,7 +16,7 @@ public class BloodPressure {
     TODO: make these strings resources
 
     */
-    public static final String mCategories[] = {
+    private static final String mCategories[] = {
             "Low reading; reevaluate",
             "Normal blood pressure",
             "Elevated blood pressure",  // formerly "prehypertension"
@@ -22,7 +24,7 @@ public class BloodPressure {
             "Stage 2 hypertension"
     };
 
-    public static final String mRecommendations[] = {
+    private static final String mRecommendations[] = {
             "Take blood pressure reading again.",
             "Normal blood pressure, no treatment needed.",
             "Lifestyle changes. Reexamine in 3-6 months.",
@@ -30,19 +32,61 @@ public class BloodPressure {
             "Treatment with 2 blood pressure-lowering drugs. Reexamine in one month."
     };
 
-    public static int bp(int systolic, int diastolic) {
+    private int bp() {
 
-        if (systolic < 100 || diastolic < 60)
+        if (mSystolic < 100 || mDiastolic < 60)
             return 0;   // "Low reading; reevaluate";
-        else if (systolic < 120 && diastolic < 80)
+        else if (mSystolic < 120 && mDiastolic < 80)
             return 1;   // "Normal blood pressure";
-        else if (systolic < 130 && diastolic < 80)
+        else if (mSystolic < 130 && mDiastolic < 80)
             return 2;   // "Elevated blood pressure";
-        else if (systolic < 140 && diastolic < 90)
+        else if (mSystolic < 140 && mDiastolic < 90)
             return 3;   // "Stage 1 hypertension";
         else
             return 4;   // "Stage 2 hypertension":
     }
 
+    private int mSystolic, mDiastolic, mCategory;
+    private Date mDate;
 
+    BloodPressure(int systolic, int diastolic, Date date) {
+        mSystolic = systolic;
+        mDiastolic = diastolic;
+        mDate = date;
+        mCategory = bp();
+    }
+
+    public String getCategory() {
+        return mCategories[mCategory];
+    }
+
+    public String getRecommendation() {
+        return mRecommendations[mCategory];
+    }
+
+    public int getSystolic() {
+        return mSystolic;
+    }
+
+    public void setSystolic(int systolic) {
+        mSystolic = systolic;
+        mCategory = bp();
+    }
+
+    public int getDiastolic() {
+        return mDiastolic;
+    }
+
+    public void setDiastolic(int diastolic) {
+        mDiastolic = diastolic;
+        mCategory = bp();
+    }
+
+    public Date getDate() {
+        return mDate;
+    }
+
+    public void setDate(Date date) {
+        mDate = date;
+    }
 }
