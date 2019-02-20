@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">BpList</string>
     <string name="generate">Generate</string>
-    <string name="string_generate" />
+    <string name="string_generate">Generate</string>
 </resources>
