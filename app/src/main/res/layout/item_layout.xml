@@ -2,20 +2,28 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/round_backgroudn"
+    android:padding="15dp"
+    android:layout_marginTop="10dp"
+    android:id="@+id/div">
 
 
     <TextView
+        android:layout_marginBottom="5dp"
         android:id="@+id/text-reading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Reading"
-        android:textSize="18sp"/>
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:id="@+id/text-date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="date" />
+        android:text="date"
+        android:textSize="15dp"
+        android:textColor="#FFFFFF"/>
 </LinearLayout>
